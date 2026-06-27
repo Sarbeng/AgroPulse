@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-forest-50: #f0fdf4;
+  --color-forest-100: #dcfce7;
+  --color-forest-200: #bbf7d0;
+  --color-forest-300: #86efac;
+  --color-forest-400: #4ade80;
+  --color-forest-500: #22c55e;
+  --color-forest-600: #16a34a;
+  --color-forest-700: #15803d;
+  --color-forest-800: #166534;
+  --color-forest-900: #14532d;
+  --color-forest-950: #052e16;
+
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply m-0 bg-gray-50 text-gray-900 font-sans;
+  }
+
+  #root {
+    @apply min-h-svh w-full;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  .pulse-verified {
+    animation: pulse-green 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-green {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+    }
+  }
+
+  .slider-thumb {
+    @apply appearance-none w-full h-3 rounded-full bg-forest-200 outline-none cursor-pointer;
+  }
+
+  .slider-thumb::-webkit-slider-thumb {
+    @apply appearance-none w-8 h-8 rounded-full bg-forest-700 cursor-pointer shadow-lg border-4 border-white;
+  }
+
+  .slider-thumb::-moz-range-thumb {
+    @apply w-8 h-8 rounded-full bg-forest-700 cursor-pointer shadow-lg border-4 border-white border-solid;
+  }
+}
