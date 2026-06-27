@@ -11,4 +11,17 @@
             "framework": "laravel"
         }
     }
+,
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/_/backend/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "frontend/dist/index.html"
+    }
+  ]
 }
